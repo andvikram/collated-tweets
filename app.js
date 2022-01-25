@@ -1,6 +1,6 @@
 // Selecting The Container.
 const container = document.querySelector('.container');
-// Get it from Twitter archive
+// Provide the path/link to your Twitter archive's likes JSON file
 let jsonLikesFile = '';
 const db = new PouchDB('Tweet');
 let isScrolled = false;
