@@ -38,7 +38,7 @@ let fetchNextPage = function() {
 		for (let i = 0; i < results.length; i++) {
 			row = results[i].doc;
 			post = document.createElement('div');
-			post.className = 'text';
+			post.className = 'tweet';
 			post.setAttribute("id", row.tweetId);
 			post.setAttribute("rowId", row._id);
 			container.appendChild(post);
