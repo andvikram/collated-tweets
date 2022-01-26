@@ -1,8 +1,8 @@
 // Provide the path/link to your Twitter archive's likes JSON file
-let jsonLikesFile = '';
+const jsonLikesFile = '';
 
 const container = document.querySelector('.container');
-const db = new PouchDB('Tweet');
+const db = new PouchDB('tweets');
 const options = { include_docs: true, limit: 5 };
 let isScrolled = false;
 let pageSize = 5;
@@ -70,7 +70,7 @@ let populateDB = function(data) {
 	db.bulkDocs(likes).then(function (result) {
 	  console.log("Batch update success");
 	}).catch(function (err) {
-	  console.log(err);
+	  console.log("bulkDocs error:", err);
 	});
 	fetchNextPage();
 };
