@@ -7,4 +7,4 @@ This application uses [<img src="https://pouchdb.com/static/img/logo.svg"  width
 
 Sample output:
 
-![output](assets/output.png?raw=true)
+![output](assets/output.png)
