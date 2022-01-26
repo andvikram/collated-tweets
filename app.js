@@ -19,12 +19,12 @@ window.addEventListener('scroll', () => {
 let createTweet = function(data) {
 	let tweet = document.getElementById(data.tweetId);
 
-  twttr.widgets.createTweet(data.tweetId, tweet, {
-    conversation: "none", // or all
-    cards: "hidden", // or visible
-    linkColor: "#cc0000", // default is blue
-    theme: "light", // or dark
-  });
+	twttr.widgets.createTweet(data.tweetId, tweet, {
+		conversation: "none", // or all
+		cards: "hidden", // or visible
+		linkColor: "#cc0000", // default is blue
+		theme: "light", // or dark
+	});
 };
 
 let fetchNextPage = function() {
