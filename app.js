@@ -1,16 +1,13 @@
-// Selecting The Container.
-const container = document.querySelector('.container');
 // Provide the path/link to your Twitter archive's likes JSON file
 let jsonLikesFile = '';
+
+const container = document.querySelector('.container');
 const db = new PouchDB('Tweet');
+const options = { include_docs: true, limit: 5 };
 let isScrolled = false;
-// let totalRows;
-let options = { include_docs: true, limit: 5 };
 let pageSize = 5;
 let lastSeq = 0;
-let results;
 
-// The Scroll Event.
 window.addEventListener('scroll', () => {
 	const { scrollHeight, scrollTop, clientHeight } = document.documentElement;
 	if ((scrollTop + clientHeight > scrollHeight - 20) && !isScrolled) {
@@ -31,13 +28,13 @@ let createTweet = function(data) {
 };
 
 let fetchNextPage = function() {
+	let results;
 	db.changes({
 		since: lastSeq,
 		limit: pageSize,
 		include_docs: true
 	}).then(function (changes) {
 		results = changes.results;
-		// console.log('\nresults:', results);
 		for (let i = 0; i < results.length; i++) {
 			row = results[i].doc;
 			post = document.createElement('div');
@@ -81,7 +78,6 @@ let populateDB = function(data) {
 fetch(jsonLikesFile).then(response => {
 	return response.json();
 }).then(data => {
-	// totalRows = data.length;
 	populateDB(data);
 }).catch(err => {
 	console.log("fetch error:", err);
