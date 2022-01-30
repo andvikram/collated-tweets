@@ -45,7 +45,7 @@ let fetchNextPage = function() {
 			createTweet(row);
 		}
 
-		lastSeq = changes.results[changes.results.length - 1].seq;
+		lastSeq = results[results.length - 1].seq;
 		isScrolled = false;
 	}).catch(err => {
 		console.log("fetchNextPage error:", err);
